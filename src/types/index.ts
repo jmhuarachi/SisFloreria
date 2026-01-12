@@ -1,4 +1,3 @@
-// src/types/index.ts
 export interface Product {
   id: number;
   name: string;
@@ -8,6 +7,8 @@ export interface Product {
   image?: string;
   details: string[];
   featured?: boolean;
+  stock?: number;
+  tags?: string[];
 }
 
 export interface ProductCategoryType {
@@ -15,4 +16,5 @@ export interface ProductCategoryType {
   name: string;
   description: string;
   icon: string;
+  color: string;
 }
