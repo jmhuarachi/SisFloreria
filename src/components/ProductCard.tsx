@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Star, Package, ChevronDown, ChevronUp, MessageCircle, Info } from 'lucide-react';
+import { Star, Package, ChevronUp, MessageCircle, Info } from 'lucide-react';
 import type { Product } from '../types';
 
 interface ProductCardProps {

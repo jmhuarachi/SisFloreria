@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, MessageCircle, Home, Flower2, ShoppingCart, Phone } from 'lucide-react';
+import { Menu, X, Home, Flower2, ShoppingCart, Phone } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
 import { FaWhatsapp } from 'react-icons/fa';
 
@@ -119,7 +119,7 @@ const Header: React.FC = () => {
                 onClick={handleWhatsApp}
                 className="flex items-center justify-center gap-2 btn-primary mt-2"
               >
-                <MessageCircle className="w-5 h-5" />
+                <FaWhatsapp className="w-5 h-5" />
                 WhatsApp
               </button>
             </nav>
