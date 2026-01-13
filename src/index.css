@@ -95,3 +95,18 @@
     @apply backdrop-blur-sm bg-white/80 dark:bg-gray-800/80;
   }
 }
+
+@layer base {
+  /* Asegura que el tema se aplique correctamente */
+  :root {
+    color-scheme: light dark;
+  }
+  
+  .dark {
+    color-scheme: dark;
+  }
+  
+  .light {
+    color-scheme: light;
+  }
+}

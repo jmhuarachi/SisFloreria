@@ -1,136 +1,162 @@
 import React from 'react';
+import { FaFacebook, FaInstagram, FaTiktok, FaWhatsapp } from 'react-icons/fa';
+import { Clock, MapPin, Phone, Heart, AlertCircle } from 'lucide-react';
 import { contactInfo } from '../data/products';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
+  const socialLinks = [
+    {
+      name: 'Facebook',
+      icon: FaFacebook,
+      url: 'https://facebook.com',
+      color: 'hover:text-blue-600 dark:hover:text-blue-400'
+    },
+    {
+      name: 'Instagram',
+      icon: FaInstagram,
+      url: 'https://instagram.com',
+      color: 'hover:text-pink-600 dark:hover:text-pink-400'
+    },
+    {
+      name: 'TikTok',
+      icon: FaTiktok,
+      url: 'https://tiktok.com',
+      color: 'hover:text-black dark:hover:text-white'
+    }
+  ];
+
+  const importantInfo = [
+    'No depositar sin previa cotización',
+    'Reserva con 50% de anticipo',
+    'No cambios/Devoluciones en arreglos listos',
+    'Entrega con 30 min de tolerancia',
+    'Personalización disponible'
+  ];
+
   return (
-    <footer className="bg-gray-900 text-gray-300 pt-16 pb-8 mt-20">
-      <div className="container">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-10">
+    <footer className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 border-t border-gray-200 dark:border-gray-700">
+      <div className="container mx-auto px-4 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+          
           {/* Logo y descripción */}
-          <div className="lg:col-span-2">
-            <div className="flex items-center space-x-4 mb-6">
-              <div className="w-14 h-14 bg-gradient-to-br from-red-500 to-pink-500 
-                            rounded-full flex items-center justify-center 
-                            shadow-lg">
-                <span className="text-white font-bold text-2xl">M</span>
+          <div className="space-y-4">
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-full overflow-hidden ring-2 ring-red-500 dark:ring-red-400">
+                <img
+                  src="/logo1.png"
+                  alt="M"
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.currentTarget.src = 'https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=100&h=100&fit=crop';
+                  }}
+                />
               </div>
               <div>
-                <h2 className="font-script text-3xl text-white">Marsihuri</h2>
-                <p className="text-red-400 font-bold tracking-wider">FLORERÍA</p>
+                <h3 className="text-xl font-bold bg-gradient-to-r from-red-500 to-pink-500 bg-clip-text text-transparent">
+                  Marsihuvi
+                </h3>
+                <p className="text-xs text-gray-600 dark:text-gray-400 font-medium">
+                  FLORERÍA
+                </p>
               </div>
             </div>
-            <p className="text-gray-400 mb-8 max-w-xl">
-              Pequeños detalles causan grandes sentimientos. Somos una florería comprometida 
-              con crear momentos especiales a través de nuestras flores, 
-              combinando calidad, diseño y pasión en cada arreglo.
+            <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+              Pequeños detalles causan grandes sentimientos. Somos una florería comprometida con crear 
+              momentos especiales a través de nuestras flores, combinando calidad, diseño y pasión en cada arreglo.
             </p>
-            
-            {/* Horario de atención */}
-            <div className="bg-gray-800/50 rounded-xl p-4 inline-block">
-              <div className="flex items-center space-x-3">
-                <span className="text-red-400">⏰</span>
-                <div>
-                  <p className="font-semibold text-white">Horario de Atención</p>
-                  <p className="text-sm text-gray-400">{contactInfo.businessHours}</p>
-                </div>
-              </div>
-            </div>
+          </div>
+
+          {/* Horario de atención */}
+          <div className="space-y-4">
+            <h4 className="text-lg font-bold text-gray-800 dark:text-white flex items-center gap-2">
+              <Clock className="w-5 h-5 text-red-500" />
+              Horario de Atención
+            </h4>
+            <p className="text-gray-600 dark:text-gray-400 text-sm flex items-start gap-2">
+              <span className="text-red-500 mt-1">📅</span>
+              {contactInfo.businessHours}
+            </p>
           </div>
 
           {/* Contacto */}
-          <div>
-            <h3 className="text-xl font-bold text-white mb-6 pb-3 
-                         border-b border-gray-800">
-              📞 Contacto
-            </h3>
-            <div className="space-y-5">
-              <a 
+          <div className="space-y-4">
+            <h4 className="text-lg font-bold text-gray-800 dark:text-white flex items-center gap-2">
+              <Phone className="w-5 h-5 text-red-500" />
+              Contacto
+            </h4>
+            <div className="space-y-3">
+              <a
                 href={`https://wa.me/51${contactInfo.phone.replace(/\s/g, '')}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center space-x-4 p-3 rounded-xl 
-                         bg-gray-800/50 hover:bg-gray-800 
-                         transition-all duration-300 
-                         hover:scale-[1.02] group"
+                className="flex items-center gap-3 text-gray-600 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 transition-colors group"
               >
-                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 
-                              rounded-full flex items-center justify-center 
-                              group-hover:rotate-12 transition-transform">
-                  <span className="text-white text-xl">💬</span>
-                </div>
-                <div>
-                  <p className="font-semibold text-white">WhatsApp</p>
-                  <p className="text-gray-400">{contactInfo.phone}</p>
-                </div>
+                <FaWhatsapp className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                <span className="text-sm">{contactInfo.phone}</span>
               </a>
-              
-              <div className="flex items-center space-x-4 p-3 rounded-xl bg-gray-800/50">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 
-                              rounded-full flex items-center justify-center">
-                  <span className="text-white text-xl">📍</span>
-                </div>
-                <div>
-                  <p className="font-semibold text-white">Ubicación</p>
-                  <p className="text-gray-400">{contactInfo.address}</p>
-                </div>
+              <div className="flex items-start gap-3 text-gray-600 dark:text-gray-400">
+                <MapPin className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
+                <span className="text-sm">{contactInfo.address}</span>
               </div>
             </div>
           </div>
 
           {/* Información importante */}
-          <div>
-            <h3 className="text-xl font-bold text-white mb-6 pb-3 
-                         border-b border-gray-800">
-              ⚡ Importante
-            </h3>
-            <ul className="space-y-4">
-              {[
-                'No depositar sin previa cotización',
-                'Reserva con 50% de anticipo',
-                'No cambios/Devoluciones en arreglos listos',
-                'Entrega con 30 min de tolerancia',
-                'Personalización disponible'
-              ].map((item, index) => (
-                <li key={index} className="flex items-start space-x-3">
-                  <span className="text-red-400 mt-1">•</span>
-                  <span className="text-gray-400">{item}</span>
+          <div className="space-y-4">
+            <h4 className="text-lg font-bold text-gray-800 dark:text-white flex items-center gap-2">
+              <AlertCircle className="w-5 h-5 text-red-500" />
+              Importante
+            </h4>
+            <ul className="space-y-2">
+              {importantInfo.map((item, index) => (
+                <li
+                  key={index}
+                  className="text-xs text-gray-600 dark:text-gray-400 flex items-start gap-2"
+                >
+                  <span className="text-red-500 mt-0.5">•</span>
+                  <span>{item}</span>
                 </li>
               ))}
             </ul>
           </div>
         </div>
 
+        {/* Línea divisoria */}
+        <div className="border-t border-gray-300 dark:border-gray-700 my-8" />
+
         {/* Redes sociales y copyright */}
-        <div className="mt-16 pt-8 border-t border-gray-800">
-          <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
-            <p className="text-gray-500 text-sm">
-              &copy; {currentYear} Florería Marsihuri. Todos los derechos reservados.
-            </p>
-            
-            <div className="flex space-x-6">
-              {['Facebook', 'Instagram', 'TikTok'].map((social) => (
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-sm text-gray-600 dark:text-gray-400">
+            © {currentYear} Florería Marsihuvi. Todos los derechos reservados.
+          </p>
+
+          {/* Redes sociales */}
+          <div className="flex items-center gap-4">
+            {socialLinks.map((social) => {
+              const Icon = social.icon;
+              return (
                 <a
-                  key={social}
-                  href="#"
-                  className="text-gray-400 hover:text-white 
-                           hover:scale-110 transition-all duration-300 
-                           flex items-center space-x-2"
+                  key={social.name}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`p-2 rounded-lg bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 ${social.color} transition-all duration-200 hover:scale-110 hover:shadow-lg`}
+                  aria-label={social.name}
+                  title={social.name}
                 >
-                  <span>
-                    {social === 'Facebook' ? '📘' : 
-                     social === 'Instagram' ? '📷' : '🎵'}
-                  </span>
-                  <span>{social}</span>
+                  <Icon className="w-5 h-5" />
                 </a>
-              ))}
-            </div>
-            
-            <div className="text-sm text-gray-500">
-              <span className="text-red-400">❤️</span> Hecho con amor en Tacna
-            </div>
+              );
+            })}
           </div>
+
+          {/* Hecho con amor */}
+          <p className="text-sm text-gray-600 dark:text-gray-400 flex items-center gap-2">
+            <Heart className="w-4 h-4 text-red-500 animate-pulse" />
+            Hecho con amor en Tacna
+          </p>
         </div>
       </div>
     </footer>

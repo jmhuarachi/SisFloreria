@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Menu, X, MessageCircle, Home, Flower2, ShoppingCart, Phone } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
+import { FaWhatsapp } from 'react-icons/fa';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
@@ -13,99 +15,81 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const menuItems = [
+    { name: 'Inicio', icon: Home, href: '#inicio' },
+    { name: 'Catálogo', icon: Flower2, href: '#catalogo' },
+    { name: 'Cómo Comprar', icon: ShoppingCart, href: '#como-comprar' },
+    { name: 'Contacto', icon: Phone, href: '#contacto' }
+  ];
+
+  const handleWhatsApp = () => {
+    window.open('https://wa.me/51989807482', '_blank');
+  };
+
   return (
-    <header className={`
-      fixed top-0 left-0 right-0 z-50 
-      transition-all duration-300
-      ${scrolled 
-        ? 'glass-effect shadow-xl py-3' 
-        : 'bg-white dark:bg-gray-900 py-4'
-      }
-    `}>
-      <div className="container">
-        <div className="flex justify-between items-center">
-          {/* Logo */}
-          <div className="flex items-center space-x-3 group cursor-pointer">
-            <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-pink-500 
-                          rounded-full flex items-center justify-center 
-                          shadow-lg group-hover:shadow-xl 
-                          transition-all duration-300 
-                          group-hover:scale-105">
-              <span className="text-white font-bold text-xl">M</span>
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg'
+          : 'bg-white dark:bg-gray-900'
+      }`}
+    >
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between h-20">
+          {/* Logo - Solo imagen */}
+          <a href="#inicio" className="flex items-center group">
+            <div className="relative w-16 h-16 sm:w-20 sm:h-20">
+              <img
+                src="/logo1.png"
+                alt="Florería Marsihuri"
+                className="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-300"
+                onError={(e) => {
+                  e.currentTarget.src = 'https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=200&h=200&fit=crop';
+                }}
+              />
             </div>
-            <div>
-              <h1 className="font-script text-2xl md:text-3xl 
-                           text-gray-800 dark:text-white 
-                           group-hover:text-gradient 
-                           transition-all duration-300">
-                Marsihuvi
-              </h1>
-              <p className="text-sm font-semibold text-red-500 dark:text-red-400 
-                          tracking-wider">
-                FLORERÍA
-              </p>
-            </div>
-          </div>
+          </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-1">
-            {['Inicio', 'Catálogo', 'Cómo Comprar', 'Contacto'].map((item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase().replace(' ', '-')}`}
-                className="px-4 py-2 rounded-lg font-medium 
-                         text-gray-700 dark:text-gray-300 
-                         hover:text-red-500 dark:hover:text-red-400 
-                         hover:bg-red-50 dark:hover:bg-gray-800 
-                         transition-all duration-200"
-              >
-                {item}
-              </a>
-            ))}
-            
-            <div className="mx-2">
-              <ThemeToggle />
-            </div>
-            
-            <a
-              href="https://wa.me/51989807482"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary ml-2"
-            >
-              <span className="flex items-center space-x-2">
-                <span>💬</span>
-                <span>WhatsApp</span>
-              </span>
-            </a>
+          <nav className="hidden lg:flex items-center gap-1">
+            {menuItems.map((item) => {
+              const Icon = item.icon;
+              return (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="flex items-center gap-2 px-4 py-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-red-50 dark:hover:bg-red-900/20 hover:text-red-600 dark:hover:text-red-400 transition-all duration-200 font-medium"
+                >
+                  <Icon className="w-4 h-4" />
+                  {item.name}
+                </a>
+              );
+            })}
           </nav>
 
-          {/* Mobile Menu Button */}
-          <div className="flex items-center space-x-3 md:hidden">
+          {/* Actions */}
+          <div className="flex items-center gap-3">
             <ThemeToggle />
-            <a
-              href="https://wa.me/51989807482"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary py-2 px-4 text-sm"
+            
+            {/* WhatsApp Button - Desktop */}
+            <button
+              onClick={handleWhatsApp}
+              className="hidden sm:flex items-center gap-2 btn-primary"
             >
-              💬
-            </a>
+              <FaWhatsapp className="w-5 h-5" />
+              WhatsApp
+            </button>
+
+            {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 
-                       text-gray-700 dark:text-gray-300 
-                       hover:bg-gray-200 dark:hover:bg-gray-700 
-                       transition-colors"
+              className="lg:hidden p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+              aria-label="Menú"
             >
               {isMenuOpen ? (
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
+                <X className="w-6 h-6" />
               ) : (
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
+                <Menu className="w-6 h-6" />
               )}
             </button>
           </div>
@@ -113,24 +97,32 @@ const Header: React.FC = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4 animate-slide-up">
-            <div className="flex flex-col space-y-2 bg-white dark:bg-gray-800 
-                          rounded-xl p-4 shadow-lg">
-              {['Inicio', 'Catálogo', 'Cómo Comprar', 'Contacto'].map((item) => (
-                <a
-                  key={item}
-                  href={`#${item.toLowerCase().replace(' ', '-')}`}
-                  className="px-4 py-3 rounded-lg font-medium 
-                           text-gray-700 dark:text-gray-300 
-                           hover:text-red-500 dark:hover:text-red-400 
-                           hover:bg-red-50 dark:hover:bg-gray-700 
-                           transition-colors"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item}
-                </a>
-              ))}
-            </div>
+          <div className="lg:hidden py-4 border-t border-gray-200 dark:border-gray-800 animate-slide-up">
+            <nav className="flex flex-col gap-2">
+              {menuItems.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-red-50 dark:hover:bg-red-900/20 hover:text-red-600 dark:hover:text-red-400 transition-all duration-200 font-medium"
+                  >
+                    <Icon className="w-5 h-5" />
+                    {item.name}
+                  </a>
+                );
+              })}
+              
+              {/* WhatsApp Button - Mobile */}
+              <button
+                onClick={handleWhatsApp}
+                className="flex items-center justify-center gap-2 btn-primary mt-2"
+              >
+                <MessageCircle className="w-5 h-5" />
+                WhatsApp
+              </button>
+            </nav>
           </div>
         )}
       </div>
