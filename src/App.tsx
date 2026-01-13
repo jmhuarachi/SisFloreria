@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Flower2, MessageCircle, Search, X, Sparkles } from 'lucide-react';
+import { Flower2, Search, X, Sparkles } from 'lucide-react';
 import { FaWhatsapp, FaFacebook, FaInstagram } from 'react-icons/fa';
 import Header from './components/Header';
 import Footer from './components/Footer';
