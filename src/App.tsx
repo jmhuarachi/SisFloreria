@@ -108,7 +108,7 @@ const App: React.FC = () => {
       icon: Calculator,
       emoji: '💰',
       title: 'Consulta', 
-      desc: 'Consulta la tarifa de delivery',
+      desc: 'Consulta el costo de delivery',
       color: 'from-purple-400 to-purple-500',
       image: 'https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?w=400&h=300&fit=crop'
     },

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Star, Package, ChevronUp, MessageCircle, Info } from 'lucide-react';
+import { Star, Package, ChevronUp, Info } from 'lucide-react';
 import type { Product } from '../types';
+import { FaWhatsapp } from 'react-icons/fa';
 
 interface ProductCardProps {
   product: Product;
@@ -130,7 +131,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             onClick={handleConsult}
             className="flex-1 btn-primary py-2.5 text-sm flex items-center justify-center gap-2"
           >
-            <MessageCircle className="w-4 h-4" />
+            <FaWhatsapp className="w-4 h-4" />
             Consultar
           </button>
         </div>
