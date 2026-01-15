@@ -94,6 +94,10 @@
   .glass-effect {
     @apply backdrop-blur-sm bg-white/80 dark:bg-gray-800/80;
   }
+
+   .animation-delay-2000 {
+    animation-delay: 2000ms;
+  }
 }
 
 @layer base {
