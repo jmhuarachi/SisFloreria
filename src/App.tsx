@@ -77,13 +77,15 @@ const App: React.FC = () => {
   };
 
   const categoryMap: { [key: string]: ProductCategoryType } = {
-    'todos': allCategory,
-    'ramos': categories[0],
-    'arreglos': categories[1],
-    'plantas': categories[2],
-    'adornos': categories[3]
-  };
-
+  'todos': allCategory,
+  'ramos': categories[0],
+  'ramos-buchon': categories[1],
+  'arreglos-florales': categories[2],
+  'plantas': categories[3],
+  'adornos': categories[4],
+  'ramos-artificiales': categories[5],
+  'globos-peluches': categories[6]
+};
   const steps = [
     { 
       step: '1', 

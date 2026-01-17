@@ -1,5 +1,6 @@
+// src/components/ProductCard.tsx
 import React, { useState } from 'react';
-import { Star, Package, ChevronUp, Info } from 'lucide-react';
+import { Star, Package, ChevronUp, Info, Palette, Check } from 'lucide-react';
 import type { Product } from '../types';
 import { FaWhatsapp } from 'react-icons/fa';
 
@@ -11,8 +12,17 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const [showDetails, setShowDetails] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
+  const [selectedVariant, setSelectedVariant] = useState<number>(0);
 
-  const imagePath = `/img/${product.image}`;
+  // Determinar la imagen a mostrar
+  const getImagePath = () => {
+    if (product.hasVariants && product.variants && product.variants.length > 0) {
+      return `/img/${product.variants[selectedVariant]?.image || product.image}`;
+    }
+    return `/img/${product.image}`;
+  };
+
+  const imagePath = getImagePath();
   const fallbackImage = `https://images.unsplash.com/photo-${[
     '1562690868-60bbe7293e94',
     '1593642532842-98d0fd5ebc1a',
@@ -21,7 +31,14 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   ][product.id % 4]}?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80`;
 
   const handleConsult = () => {
-    const message = `Hola! Me interesa el producto: ${product.name} - S/. ${product.price.toFixed(2)}`;
+    let message = `Hola! Me interesa el producto: ${product.name} - S/. ${product.price.toFixed(2)}`;
+    
+    // Agregar información de variante seleccionada si existe
+    if (product.hasVariants && product.variants && product.variants[selectedVariant]) {
+      const variant = product.variants[selectedVariant];
+      message += ` (Color: ${variant.name})`;
+    }
+    
     const whatsappUrl = `https://wa.me/51989807482?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
@@ -47,7 +64,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         )}
 
         {/* Badges */}
-        <div className="absolute top-3 left-3 flex flex-col gap-2">
+        <div className="absolute top-3 left-3 flex flex-col gap-2 z-20">
           {product.featured && (
             <span className="flex items-center gap-1 px-3 py-1 bg-gradient-to-r from-yellow-400 to-orange-400 text-white text-xs font-bold rounded-full shadow-lg">
               <Star className="w-3 h-3 fill-current" />
@@ -65,11 +82,48 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         </div>
 
         {/* Precio overlay */}
-        <div className="absolute bottom-3 right-3">
+        <div className="absolute bottom-3 right-3 z-20">
           <div className="bg-red-500 dark:bg-red-600 text-white px-4 py-2 rounded-full shadow-lg font-bold">
             S/. {product.price.toFixed(2)}
           </div>
         </div>
+
+        {/* Selector de variantes - Solo si el producto tiene variantes */}
+        {product.hasVariants && product.variants && product.variants.length > 0 && (
+          <div className="absolute bottom-3 left-3 z-20">
+            <div className="bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm rounded-lg p-2 shadow-lg">
+              <div className="flex items-center gap-2 mb-1">
+                <Palette className="w-3 h-3 text-red-500" />
+                <span className="text-xs font-semibold text-gray-700 dark:text-gray-300">
+                  Colores:
+                </span>
+              </div>
+              <div className="flex gap-1.5">
+                {product.variants.map((variant, index) => (
+                  <button
+                    key={variant.id}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setSelectedVariant(index);
+                    }}
+                    className={`relative w-7 h-7 rounded-full border-2 transition-all duration-200 hover:scale-110 ${
+                      selectedVariant === index 
+                        ? 'border-red-500 scale-110 ring-2 ring-red-500/30' 
+                        : 'border-gray-300 dark:border-gray-600 hover:border-red-300 dark:hover:border-red-400'
+                    }`}
+                    style={{ backgroundColor: variant.hexColor }}
+                    title={`Color: ${variant.name}`}
+                    aria-label={`Seleccionar color ${variant.name}`}
+                  >
+                    {selectedVariant === index && (
+                      <Check className="absolute inset-0 m-auto w-4 h-4 text-white drop-shadow-md" strokeWidth={3} />
+                    )}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Overlay de hover */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -84,6 +138,19 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-2">
             {product.description}
           </p>
+          
+          {/* Mostrar variante seleccionada */}
+          {product.hasVariants && product.variants && product.variants[selectedVariant] && (
+            <div className="flex items-center gap-2 mt-2">
+              <div 
+                className="w-4 h-4 rounded-full border border-gray-300 dark:border-gray-600"
+                style={{ backgroundColor: product.variants[selectedVariant].hexColor }}
+              />
+              <span className="text-xs text-gray-600 dark:text-gray-400">
+                Color: {product.variants[selectedVariant].name}
+              </span>
+            </div>
+          )}
         </div>
 
         {/* Detalles rápidos */}
@@ -158,12 +225,45 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             </ul>
           </div>
 
-          <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-3">
+          {/* Información de variantes si existen */}
+          {product.hasVariants && product.variants && product.variants.length > 0 && (
+            <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-3">
+              <div className="flex items-center gap-2 mb-2">
+                <Palette className="w-4 h-4 text-blue-500" />
+                <h4 className="font-semibold text-sm text-gray-800 dark:text-white">
+                  Colores disponibles:
+                </h4>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {product.variants.map((variant, index) => (
+                  <button
+                    key={variant.id}
+                    onClick={() => setSelectedVariant(index)}
+                    className={`flex items-center gap-2 px-3 py-2 rounded-lg border transition-all ${
+                      selectedVariant === index
+                        ? 'border-blue-500 bg-blue-100 dark:bg-blue-900/40'
+                        : 'border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700'
+                    }`}
+                  >
+                    <div
+                      className="w-4 h-4 rounded-full border border-gray-300 dark:border-gray-600"
+                      style={{ backgroundColor: variant.hexColor }}
+                    />
+                    <span className="text-xs text-gray-700 dark:text-gray-300">
+                      {variant.name}
+                    </span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <div className="bg-yellow-50 dark:bg-yellow-900/20 rounded-lg p-3">
             <p className="text-xs text-gray-600 dark:text-gray-400 flex items-start gap-2">
-              <Info className="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5" />
+              <Info className="w-4 h-4 text-yellow-500 flex-shrink-0 mt-0.5" />
               <span>
                 <strong>Nota:</strong> Follaje según stock, colores de flores según disponibilidad. 
-                Se pueden realizar modificaciones personalizadas.
+                Se pueden realizar modificaciones personalizadas y agregar globos o peluches con costo adicional.
               </span>
             </p>
           </div>

@@ -35,14 +35,14 @@ const Header: React.FC = () => {
       }`}
     >
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-20 m-4">
           {/* Logo - Solo imagen */}
           <a href="#inicio" className="flex items-center group">
-            <div className="relative w-16 h-16 sm:w-50 sm:h-50 overflow-hidden rounded-lg">
+            <div className="relative w-16 h-16 sm:w-50 sm:h-50">
               <img
-                src="/logo1.png"
-                alt="Florería Marsihuri"
-                className="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-300"
+                src="/Logo1.png"
+                alt="Florería D'Silvia"
+                className="w-full h-full m-4 object-contain transform group-hover:scale-105 transition-transform duration-300"
                 onError={(e) => {
                   e.currentTarget.src = 'https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=200&h=200&fit=crop';
                 }}
