@@ -8,7 +8,6 @@ import {
   Home,
   Package,
   Star,
-  Heart,
   Balloon,
   Palette
 } from 'lucide-react';
