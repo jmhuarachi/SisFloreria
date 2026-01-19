@@ -41,7 +41,7 @@ const Header: React.FC = () => {
               <img
                 src="/Logo1.png"
                 alt="Florería D'Silvia"
-                className="w-full h-full m-5 object-contain transform group-hover:scale-105 transition-transform duration-300"
+                className="w-full h-full  object-contain transform group-hover:scale-105 transition-transform duration-300"
                 onError={(e) => {
                   e.currentTarget.src = 'https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=200&h=200&fit=crop';
                 }}
