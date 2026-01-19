@@ -1,5 +1,17 @@
 import React from 'react';
-import { Flower2, Sparkles, Leaf, Gift, Check } from 'lucide-react';
+import { 
+  Flower2, 
+  Sparkles, 
+  Leaf, 
+  Gift, 
+  Check, 
+  Home,
+  Package,
+  Star,
+  Heart,
+  Balloon,
+  Palette
+} from 'lucide-react';
 import type { ProductCategoryType } from '../types';
 
 interface ProductCategoryProps {
@@ -15,83 +27,66 @@ const ProductCategory: React.FC<ProductCategoryProps> = ({
 }) => {
   // Mapear iconos según el nombre de la categoría
   const getIcon = () => {
-    const iconMap: { [key: string]: React.ReactNode } = {
-      'Todos': <Sparkles className="w-6 h-6" />,
-      'Ramos': <Flower2 className="w-6 h-6" />,
-      'Arreglos': <Sparkles className="w-6 h-6" />,
-      'Plantas': <Leaf className="w-6 h-6" />,
-      'Adornos': <Gift className="w-6 h-6" />
+    const iconMap: Record<string, React.ReactNode> = {
+      'Todos': <Home className="w-5 h-5" />,
+      'Ramos': <Flower2 className="w-5 h-5" />,
+      'Ramos Buchón': <Star className="w-5 h-5" />,
+      'Arreglos Florales': <Package className="w-5 h-5" />,
+      'Arreglos': <Package className="w-5 h-5" />,
+      'Plantas': <Leaf className="w-5 h-5" />,
+      'Adornos': <Gift className="w-5 h-5" />,
+      'Ramos Artificiales': <Palette className="w-5 h-5" />,
+      'Globos y Peluches': <Balloon className="w-5 h-5" />,
     };
     
-    return iconMap[category.name] || <Flower2 className="w-6 h-6" />;
+    return iconMap[category.name] || <Sparkles className="w-5 h-5" />;
   };
 
   return (
     <button
       onClick={onClick}
-      className={`relative overflow-hidden rounded-2xl transition-all duration-300 transform hover:scale-105 ${
+      className={`group relative flex flex-col items-center justify-center p-4 rounded-xl transition-all duration-200 ${
         isActive 
-          ? 'shadow-xl ring-2 ring-red-500 dark:ring-red-400' 
-          : 'shadow-md hover:shadow-lg'
+          ? `bg-gradient-to-br ${category.color} text-white shadow-lg ring-2 ring-white/50` 
+          : 'bg-white hover:bg-gray-50 text-gray-700 hover:text-gray-900 shadow-sm hover:shadow-md'
       }`}
+      aria-label={`Filtrar por ${category.name}`}
     >
-      {/* Fondo con gradiente */}
-      <div className={`absolute inset-0 bg-gradient-to-br ${category.color} transition-opacity duration-300 ${
-        isActive ? 'opacity-100' : 'opacity-80 group-hover:opacity-90'
-      }`} />
-      
-      {/* Fondo base para modo claro/oscuro */}
-      <div className={`absolute inset-0 transition-opacity duration-300 ${
-        isActive 
-          ? 'bg-white/10 dark:bg-black/20' 
-          : 'bg-white/20 dark:bg-black/30'
-      }`} />
-
-      {/* Patrón decorativo */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 right-0 w-20 h-20 bg-white rounded-full -translate-y-10 translate-x-10" />
-        <div className="absolute bottom-0 left-0 w-16 h-16 bg-white rounded-full translate-y-8 -translate-x-8" />
-      </div>
-
-      {/* Contenido */}
-      <div className="relative p-6 text-white">
-        <div className="flex items-start justify-between mb-3">
-          <div className={`p-3 rounded-xl bg-white/20 backdrop-blur-sm transition-transform duration-300 ${
-            isActive ? 'scale-110' : 'group-hover:scale-105'
-          }`}>
-            {getIcon()}
-          </div>
-          
-          {/* Indicador de selección */}
-          {isActive && (
-            <div className="p-1 rounded-full bg-white/30 backdrop-blur-sm animate-fade-in">
-              <Check className="w-5 h-5" strokeWidth={3} />
-            </div>
-          )}
+      {/* Icono con indicador activo */}
+      <div className={`relative mb-2 transition-transform duration-200 ${
+        isActive ? 'scale-110' : 'group-hover:scale-105'
+      }`}>
+        <div className={`p-2 rounded-lg ${
+          isActive 
+            ? 'bg-white/20 backdrop-blur-sm' 
+            : 'bg-gray-100 group-hover:bg-gray-200'
+        }`}>
+          {getIcon()}
         </div>
-
-        <h3 className={`font-bold text-lg mb-1 transition-all duration-300 ${
-          isActive ? 'text-white' : 'text-white/95'
-        }`}>
-          {category.name}
-        </h3>
         
-        <p className={`text-sm transition-all duration-300 ${
-          isActive ? 'text-white/90' : 'text-white/80'
-        }`}>
-          {category.description}
-        </p>
+        {/* Indicador de selección */}
+        {isActive && (
+          <div className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 rounded-full flex items-center justify-center animate-fade-in">
+            <Check className="w-3 h-3 text-white" strokeWidth={3} />
+          </div>
+        )}
       </div>
 
-      {/* Indicador activo inferior */}
-      {isActive && (
-        <div className="absolute bottom-0 left-0 right-0 h-1 bg-white shadow-lg animate-slide-up" />
-      )}
-
-      {/* Efecto de brillo al hover */}
-      <div className={`absolute inset-0 bg-gradient-to-tr from-transparent via-white/0 to-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${
-        isActive ? 'opacity-50' : ''
-      }`} />
+      {/* Nombre de la categoría */}
+      <h3 className={`font-semibold text-sm mb-1 text-center ${
+        isActive ? 'text-white' : 'text-gray-800'
+      }`}>
+        {category.name}
+      </h3>
+      
+      {/* Descripción (solo visible en hover o activo) */}
+      <div className={`text-xs text-center transition-all duration-200 ${
+        isActive 
+          ? 'opacity-90 max-h-8' 
+          : 'opacity-0 max-h-0 group-hover:opacity-70 group-hover:max-h-8'
+      } overflow-hidden`}>
+        {category.description}
+      </div>
     </button>
   );
 };

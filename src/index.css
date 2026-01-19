@@ -1,13 +1,8 @@
 @import 'tailwindcss';
 
 @layer base {
-  :root {
-    --color-primary: 239 68 68; /* red-500 */
-    --color-primary-dark: 220 38 38; /* red-600 */
-  }
-
   body {
-    @apply antialiased bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100;
+    @apply antialiased bg-[#FBEAF4] text-gray-900;
     font-family: system-ui, -apple-system, sans-serif;
   }
   
@@ -17,15 +12,15 @@
   }
   
   ::-webkit-scrollbar-track {
-    @apply bg-gray-100 dark:bg-gray-800;
+    @apply bg-gray-100;
   }
   
   ::-webkit-scrollbar-thumb {
-    @apply bg-red-400 dark:bg-red-500 rounded-full;
+    @apply bg-gradient-to-b from-red-400 to-pink-400 rounded-full;
   }
   
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-red-500 dark:bg-red-600;
+    @apply bg-gradient-to-b from-red-500 to-pink-500;
   }
 
   /* Animaciones personalizadas */
@@ -54,7 +49,7 @@
   }
 
   .btn-primary {
-    @apply bg-red-500 hover:bg-red-600 dark:bg-red-600 dark:hover:bg-red-700 
+    @apply bg-gradient-to-r from-red-400 to-pink-400 hover:from-red-500 hover:to-pink-500 
            text-white font-semibold py-2 px-6 rounded-lg 
            transition-all duration-200 
            shadow-md hover:shadow-lg 
@@ -62,10 +57,10 @@
   }
 
   .btn-secondary {
-    @apply bg-white dark:bg-gray-800 
-           text-red-500 dark:text-red-400 
-           border-2 border-red-500 dark:border-red-400
-           hover:bg-red-50 dark:hover:bg-gray-700
+    @apply bg-white 
+           text-red-500 
+           border-2 border-red-500
+           hover:bg-gray-100
            font-semibold py-2 px-6 rounded-lg 
            transition-all duration-200 
            shadow-sm hover:shadow-md;
@@ -74,11 +69,11 @@
   .card-hover {
     @apply transition-all duration-300 
            hover:shadow-xl hover:-translate-y-1 
-           border border-gray-200 dark:border-gray-700;
+           border border-gray-200;
   }
 
   .text-gradient {
-    @apply bg-gradient-to-r from-red-500 to-pink-500 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-red-400 to-pink-400 bg-clip-text text-transparent;
   }
 }
 
@@ -92,25 +87,24 @@
   }
 
   .glass-effect {
-    @apply backdrop-blur-sm bg-white/80 dark:bg-gray-800/80;
+    @apply backdrop-blur-sm bg-white/80;
   }
 
-   .animation-delay-2000 {
+  .animation-delay-2000 {
     animation-delay: 2000ms;
   }
 }
 
-@layer base {
-  /* Asegura que el tema se aplique correctamente */
-  :root {
-    color-scheme: light dark;
-  }
-  
-  .dark {
-    color-scheme: dark;
-  }
-  
-  .light {
-    color-scheme: light;
-  }
+.line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }

@@ -10,20 +10,20 @@ const Footer: React.FC = () => {
     {
       name: 'Facebook',
       icon: FaFacebook,
-      url: 'https://facebook.com',
-      color: 'hover:text-blue-600 dark:hover:text-blue-400'
+      url: 'https://www.facebook.com/share/1C6LBgHgdP/',
+      color: 'hover:text-blue-600'
     },
     {
       name: 'Instagram',
       icon: FaInstagram,
-      url: 'https://instagram.com',
-      color: 'hover:text-pink-600 dark:hover:text-pink-400'
+      url: 'https://www.instagram.com/floreriatacna.dsilvia',
+      color: 'hover:text-pink-600'
     },
     {
       name: 'TikTok',
       icon: FaTiktok,
-      url: 'https://tiktok.com',
-      color: 'hover:text-black dark:hover:text-white'
+      url: 'https://tiktok.com/@floreriatacna.dsilvia',
+      color: 'hover:text-black'
     }
   ];
 
@@ -36,16 +36,16 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 border-t border-gray-200 dark:border-gray-700">
+    <footer className="bg-gradient-to-br from-[#FBEAF4] to-white border-t border-gray-200">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           
           {/* Logo y descripción */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-full overflow-hidden ring-2 ring-red-500 dark:ring-red-400">
+              <div className="w-12 h-12 rounded-full overflow-hidden ring-2 ring-red-500">
                 <img
-                  src="/logo1.png"
+                  src="/icono1.png"
                   alt="M"
                   className="w-full h-full object-cover"
                   onError={(e) => {
@@ -54,15 +54,15 @@ const Footer: React.FC = () => {
                 />
               </div>
               <div>
-                <h3 className="text-xl font-bold bg-gradient-to-r from-red-500 to-pink-500 bg-clip-text text-transparent">
-                  Marsihuvi
+                <h3 className="text-xl font-bold bg-gradient-to-r from-red-400 to-pink-400 bg-clip-text text-transparent">
+                  Silvia
                 </h3>
-                <p className="text-xs text-gray-600 dark:text-gray-400 font-medium">
+                <p className="text-xs text-gray-600 font-medium">
                   FLORERÍA
                 </p>
               </div>
             </div>
-            <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+            <p className="text-sm text-gray-600 leading-relaxed">
               Pequeños detalles causan grandes sentimientos. Somos una florería comprometida con crear 
               momentos especiales a través de nuestras flores, combinando calidad, diseño y pasión en cada arreglo.
             </p>
@@ -70,11 +70,11 @@ const Footer: React.FC = () => {
 
           {/* Horario de atención */}
           <div className="space-y-4">
-            <h4 className="text-lg font-bold text-gray-800 dark:text-white flex items-center gap-2">
+            <h4 className="text-lg font-bold text-gray-800 flex items-center gap-2">
               <Clock className="w-5 h-5 text-red-500" />
               Horario de Atención
             </h4>
-            <p className="text-gray-600 dark:text-gray-400 text-sm flex items-start gap-2">
+            <p className="text-gray-600 text-sm flex items-start gap-2">
               <span className="text-red-500 mt-1">📅</span>
               {contactInfo.businessHours}
             </p>
@@ -82,7 +82,7 @@ const Footer: React.FC = () => {
 
           {/* Contacto */}
           <div className="space-y-4">
-            <h4 className="text-lg font-bold text-gray-800 dark:text-white flex items-center gap-2">
+            <h4 className="text-lg font-bold text-gray-800 flex items-center gap-2">
               <Phone className="w-5 h-5 text-red-500" />
               Contacto
             </h4>
@@ -91,12 +91,12 @@ const Footer: React.FC = () => {
                 href={`https://wa.me/51${contactInfo.phone.replace(/\s/g, '')}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 text-gray-600 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 transition-colors group"
+                className="flex items-center gap-3 text-gray-600 hover:text-green-600 transition-colors group"
               >
                 <FaWhatsapp className="w-5 h-5 group-hover:scale-110 transition-transform" />
                 <span className="text-sm">{contactInfo.phone}</span>
               </a>
-              <div className="flex items-start gap-3 text-gray-600 dark:text-gray-400">
+              <div className="flex items-start gap-3 text-gray-600">
                 <MapPin className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
                 <span className="text-sm">{contactInfo.address}</span>
               </div>
@@ -105,7 +105,7 @@ const Footer: React.FC = () => {
 
           {/* Información importante */}
           <div className="space-y-4">
-            <h4 className="text-lg font-bold text-gray-800 dark:text-white flex items-center gap-2">
+            <h4 className="text-lg font-bold text-gray-800 flex items-center gap-2">
               <AlertCircle className="w-5 h-5 text-red-500" />
               Importante
             </h4>
@@ -113,7 +113,7 @@ const Footer: React.FC = () => {
               {importantInfo.map((item, index) => (
                 <li
                   key={index}
-                  className="text-xs text-gray-600 dark:text-gray-400 flex items-start gap-2"
+                  className="text-xs text-gray-600 flex items-start gap-2"
                 >
                   <span className="text-red-500 mt-0.5">•</span>
                   <span>{item}</span>
@@ -124,11 +124,11 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Línea divisoria */}
-        <div className="border-t border-gray-300 dark:border-gray-700 my-8" />
+        <div className="border-t border-gray-300 my-8" />
 
         {/* Redes sociales y copyright */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-gray-600 dark:text-gray-400">
+          <p className="text-sm text-gray-600">
             © {currentYear} Florería Marsihuvi. Todos los derechos reservados.
           </p>
 
@@ -142,7 +142,7 @@ const Footer: React.FC = () => {
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`p-2 rounded-lg bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 ${social.color} transition-all duration-200 hover:scale-110 hover:shadow-lg`}
+                  className={`p-2 rounded-lg bg-gray-100 text-gray-700 ${social.color} transition-all duration-200 hover:scale-110 hover:shadow-lg`}
                   aria-label={social.name}
                   title={social.name}
                 >
@@ -153,7 +153,7 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Hecho con amor */}
-          <p className="text-sm text-gray-600 dark:text-gray-400 flex items-center gap-2">
+          <p className="text-sm text-gray-600 flex items-center gap-2">
             <Heart className="w-4 h-4 text-red-500 animate-pulse" />
             Hecho con amor en Tacna
           </p>

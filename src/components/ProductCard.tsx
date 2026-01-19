@@ -1,4 +1,3 @@
-// src/components/ProductCard.tsx
 import React, { useState } from 'react';
 import { Star, Package, ChevronUp, Info, Palette, Check } from 'lucide-react';
 import type { Product } from '../types';
@@ -44,9 +43,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   };
 
   return (
-    <div className="group bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-200 dark:border-gray-700">
+    <div className="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-200">
       {/* Imagen del producto */}
-      <div className="relative aspect-square overflow-hidden bg-gray-100 dark:bg-gray-700">
+      <div className="relative aspect-square overflow-hidden bg-gray-100">
         <img
           src={imageError ? fallbackImage : imagePath}
           alt={product.name}
@@ -60,7 +59,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
         {/* Skeleton loader */}
         {!imageLoaded && (
-          <div className="absolute inset-0 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 dark:from-gray-700 dark:via-gray-600 dark:to-gray-700 animate-pulse" />
+          <div className="absolute inset-0 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 animate-pulse" />
         )}
 
         {/* Badges */}
@@ -74,7 +73,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           {product.tags?.slice(0, 2).map((tag) => (
             <span
               key={tag}
-              className="px-3 py-1 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm text-gray-700 dark:text-gray-300 text-xs font-medium rounded-full shadow-md"
+              className="px-3 py-1 bg-white/90 backdrop-blur-sm text-gray-700 text-xs font-medium rounded-full shadow-md"
             >
               {tag}
             </span>
@@ -83,7 +82,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
         {/* Precio overlay */}
         <div className="absolute bottom-3 right-3 z-20">
-          <div className="bg-red-500 dark:bg-red-600 text-white px-4 py-2 rounded-full shadow-lg font-bold">
+          <div className="bg-red-500 text-white px-4 py-2 rounded-full shadow-lg font-bold">
             S/. {product.price.toFixed(2)}
           </div>
         </div>
@@ -91,10 +90,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         {/* Selector de variantes - Solo si el producto tiene variantes */}
         {product.hasVariants && product.variants && product.variants.length > 0 && (
           <div className="absolute bottom-3 left-3 z-20">
-            <div className="bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm rounded-lg p-2 shadow-lg">
+            <div className="bg-white/95 backdrop-blur-sm rounded-lg p-2 shadow-lg">
               <div className="flex items-center gap-2 mb-1">
                 <Palette className="w-3 h-3 text-red-500" />
-                <span className="text-xs font-semibold text-gray-700 dark:text-gray-300">
+                <span className="text-xs font-semibold text-gray-700">
                   Colores:
                 </span>
               </div>
@@ -109,7 +108,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                     className={`relative w-7 h-7 rounded-full border-2 transition-all duration-200 hover:scale-110 ${
                       selectedVariant === index 
                         ? 'border-red-500 scale-110 ring-2 ring-red-500/30' 
-                        : 'border-gray-300 dark:border-gray-600 hover:border-red-300 dark:hover:border-red-400'
+                        : 'border-gray-300 hover:border-red-300'
                     }`}
                     style={{ backgroundColor: variant.hexColor }}
                     title={`Color: ${variant.name}`}
@@ -132,10 +131,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       {/* Contenido */}
       <div className="p-5 space-y-4">
         <div>
-          <h3 className="text-lg font-bold text-gray-800 dark:text-white mb-2 line-clamp-1 group-hover:text-red-500 dark:group-hover:text-red-400 transition-colors">
+          <h3 className="text-lg font-bold text-gray-800 mb-2 line-clamp-1 group-hover:text-red-500 transition-colors">
             {product.name}
           </h3>
-          <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-2">
+          <p className="text-sm text-gray-600 line-clamp-2">
             {product.description}
           </p>
           
@@ -143,10 +142,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           {product.hasVariants && product.variants && product.variants[selectedVariant] && (
             <div className="flex items-center gap-2 mt-2">
               <div 
-                className="w-4 h-4 rounded-full border border-gray-300 dark:border-gray-600"
+                className="w-4 h-4 rounded-full border border-gray-300"
                 style={{ backgroundColor: product.variants[selectedVariant].hexColor }}
               />
-              <span className="text-xs text-gray-600 dark:text-gray-400">
+              <span className="text-xs text-gray-600">
                 Color: {product.variants[selectedVariant].name}
               </span>
             </div>
@@ -154,8 +153,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         </div>
 
         {/* Detalles rápidos */}
-        <div className="bg-gray-50 dark:bg-gray-700/50 rounded-lg p-3 space-y-2">
-          <div className="flex items-center gap-2 text-gray-700 dark:text-gray-300">
+        <div className="bg-gray-50 rounded-lg p-3 space-y-2">
+          <div className="flex items-center gap-2 text-gray-700">
             <Package className="w-4 h-4 text-red-500" />
             <span className="text-xs font-semibold">Incluye:</span>
           </div>
@@ -163,13 +162,13 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             {product.details.slice(0, 2).map((detail, index) => (
               <span
                 key={index}
-                className="text-xs bg-white dark:bg-gray-800 px-2 py-1 rounded-md text-gray-600 dark:text-gray-400 border border-gray-200 dark:border-gray-600"
+                className="text-xs bg-white px-2 py-1 rounded-md text-gray-600 border border-gray-200"
               >
                 {detail.split(' ')[0]}
               </span>
             ))}
             {product.details.length > 2 && (
-              <span className="text-xs text-red-500 dark:text-red-400 font-medium px-2 py-1">
+              <span className="text-xs text-red-500 font-medium px-2 py-1">
                 +{product.details.length - 2} más
               </span>
             )}
@@ -180,7 +179,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         <div className="flex gap-2">
           <button
             onClick={() => setShowDetails(!showDetails)}
-            className="flex-1 btn-secondary py-2.5 text-sm flex items-center justify-center gap-2"
+            className="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium py-2.5 px-4 rounded-lg transition-all duration-200 text-sm flex items-center justify-center gap-2"
           >
             {showDetails ? (
               <>
@@ -196,7 +195,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           </button>
           <button
             onClick={handleConsult}
-            className="flex-1 btn-primary py-2.5 text-sm flex items-center justify-center gap-2"
+            className="flex-1 bg-gradient-to-r from-red-400 to-pink-400 hover:from-red-500 hover:to-pink-500 text-white font-semibold py-2.5 px-4 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg text-sm flex items-center justify-center gap-2"
           >
             <FaWhatsapp className="w-4 h-4" />
             Consultar
@@ -206,9 +205,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
       {/* Detalles expandidos */}
       {showDetails && (
-        <div className="px-5 pb-5 space-y-3 border-t border-gray-200 dark:border-gray-700 pt-4 animate-slide-up">
-          <div className="bg-gradient-to-br from-red-50 to-pink-50 dark:from-red-900/20 dark:to-pink-900/20 rounded-lg p-4 space-y-3">
-            <div className="flex items-center gap-2 text-gray-800 dark:text-white">
+        <div className="px-5 pb-5 space-y-3 border-t border-gray-200 pt-4 animate-slide-up">
+          <div className="bg-gradient-to-br from-red-50 to-pink-50 rounded-lg p-4 space-y-3">
+            <div className="flex items-center gap-2 text-gray-800">
               <Package className="w-4 h-4 text-red-500" />
               <h4 className="font-semibold text-sm">Incluye:</h4>
             </div>
@@ -216,7 +215,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
               {product.details.map((detail, index) => (
                 <li
                   key={index}
-                  className="text-sm text-gray-700 dark:text-gray-300 flex items-start gap-2"
+                  className="text-sm text-gray-700 flex items-start gap-2"
                 >
                   <span className="text-red-500 mt-0.5">•</span>
                   <span>{detail}</span>
@@ -227,10 +226,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
           {/* Información de variantes si existen */}
           {product.hasVariants && product.variants && product.variants.length > 0 && (
-            <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-3">
+            <div className="bg-blue-50 rounded-lg p-3">
               <div className="flex items-center gap-2 mb-2">
                 <Palette className="w-4 h-4 text-blue-500" />
-                <h4 className="font-semibold text-sm text-gray-800 dark:text-white">
+                <h4 className="font-semibold text-sm text-gray-800">
                   Colores disponibles:
                 </h4>
               </div>
@@ -241,15 +240,15 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                     onClick={() => setSelectedVariant(index)}
                     className={`flex items-center gap-2 px-3 py-2 rounded-lg border transition-all ${
                       selectedVariant === index
-                        ? 'border-blue-500 bg-blue-100 dark:bg-blue-900/40'
-                        : 'border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700'
+                        ? 'border-blue-500 bg-blue-100'
+                        : 'border-gray-200 bg-white hover:bg-gray-100'
                     }`}
                   >
                     <div
-                      className="w-4 h-4 rounded-full border border-gray-300 dark:border-gray-600"
+                      className="w-4 h-4 rounded-full border border-gray-300"
                       style={{ backgroundColor: variant.hexColor }}
                     />
-                    <span className="text-xs text-gray-700 dark:text-gray-300">
+                    <span className="text-xs text-gray-700">
                       {variant.name}
                     </span>
                   </button>
@@ -258,8 +257,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             </div>
           )}
 
-          <div className="bg-yellow-50 dark:bg-yellow-900/20 rounded-lg p-3">
-            <p className="text-xs text-gray-600 dark:text-gray-400 flex items-start gap-2">
+          <div className="bg-yellow-50 rounded-lg p-3">
+            <p className="text-xs text-gray-600 flex items-start gap-2">
               <Info className="w-4 h-4 text-yellow-500 flex-shrink-0 mt-0.5" />
               <span>
                 <strong>Nota:</strong> Follaje según stock, colores de flores según disponibilidad. 

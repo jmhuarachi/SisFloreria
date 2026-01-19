@@ -15,10 +15,10 @@ export const products: Product[] = [
     tags: ['pequeño', 'económico', 'romántico'],
     hasVariants: true,
     variants: [
-      { id: 1, name: 'Rojo', color: 'Rojo Pasión', image: 'ramos/unitario-rosa-rojo.png', hexColor: '#DC2626', available: true },
-      { id: 2, name: 'Rosado', color: 'Rosado Suave', image: 'ramos/unitario-girasol.png', hexColor: '#EC4899', available: true },
-      { id: 3, name: 'Blanco', color: 'Blanco Puro', image: 'ramos/unitario-rosa-rojo.png', hexColor: '#FFFFFF', available: true },
-      //{ id: 4, name: 'Amarillo', color: 'Amarillo Brillante', image: 'ramos/unitario-rosa-rosado.jpg', hexColor: '#FBBF24', available: true }
+      { id: 1, name: 'Rojo', color: 'Rojo Pasión', image: 'ramos/unitario-rosa-rojo.jpg', hexColor: '#DC2626', available: true },
+      { id: 2, name: 'Rosado', color: 'Rosado Suave', image: 'ramos/unitario-rosa-rosado.jpg', hexColor: '#EC4899', available: true },
+      { id: 3, name: 'Blanco', color: 'Blanco Puro', image: 'ramos/unitario-rosa-blanco.jpg', hexColor: '#FFFFFF', available: true },
+      { id: 4, name: 'Amarillo', color: 'Amarillo Brillante', image: 'ramos/unitario-rosa-amarillo.jpg', hexColor: '#FBBF24', available: true }
     ]
   },
   {
@@ -45,11 +45,11 @@ export const products: Product[] = [
     tags: ['clásico', 'romántico'],
     hasVariants: true,
     variants: [
-      { id: 1, name: 'Rojo', color: 'Rojo Intenso', image: 'ramos/3-rosas-rojo.png', hexColor: '#B91C1C', available: true },
-      //{ id: 2, name: 'Rosado', color: 'Rosado Claro', image: 'ramos/3-rosas-rosado.jpg', hexColor: '#F472B6', available: true }
+      { id: 1, name: 'Rojo', color: 'Rojo Intenso', image: 'ramos/3-rosas-rojo.jpg', hexColor: '#B91C1C', available: true },
+      { id: 2, name: 'Rosado', color: 'Rosado Claro', image: 'ramos/3-rosas-rosado.jpg', hexColor: '#F472B6', available: true }
     ]
   },
-  
+
   {
     id: 4,
     name: '3 Girasoles',
@@ -61,7 +61,7 @@ export const products: Product[] = [
     tags: ['alegre', 'vibrante'],
     hasVariants: false
   },
-   {
+  {
     id: 5,
     name: 'Ramo 3 Gerberas',
     description: 'Alegre ramo con 3 gerberas de colores vibrantes',
@@ -104,9 +104,10 @@ export const products: Product[] = [
     tags: ['aniversario', 'premium', 'recomendado'],
     hasVariants: true,
     variants: [
-      { id: 1, name: 'Rojo', color: 'Rojo Pasión', image: 'ramos/6-rosas-rojo.png', hexColor: '#DC2626', available: true },
-      //{ id: 2, name: 'Blanco', color: 'Blanco Nieve', image: 'ramos/6-rosas-blanco.jpg', hexColor: '#F3F4F6', available: true },
-      //{ id: 3, name: 'Mixto', color: 'Colores Mixtos', image: 'ramos/6-rosas-mixto.jpg', hexColor: '#8B5CF6', available: true }
+      { id: 1, name: 'Rojo', color: 'Rojo', image: 'ramos/6-rosas-rojo.png', hexColor: '#DC2626', available: true },
+      { id: 2, name: 'Blanco', color: 'Blanco Nieve', image: 'ramos/6-rosas-blanca.jpg', hexColor: '#F3F4F6', available: true },
+      { id: 3, name: 'Rosado', color: 'Rosado Claro', image: 'ramos/6-rosas-rosado.jpg', hexColor: '#F472B6', available: true },
+      { id: 4, name: 'Amarillo', color: 'Amarilla', image: 'ramos/6-rosas-amarillo.jpg', hexColor: '#EAB308', available: true }
     ]
   },
   {
@@ -121,10 +122,10 @@ export const products: Product[] = [
     hasVariants: true,
     variants: [
       { id: 1, name: 'Rojo', color: 'Rosas Rojas', image: 'ramos/5rosas-1girasol.png', hexColor: '#DC2626', available: true },
-      { id: 2, name: 'Mixto', color: 'Colores Mixtos', image: 'ramos/combinado-mixto.jpg', hexColor: '#7C3AED', available: true }
+      //{ id: 2, name: 'Mixto', color: 'Colores Mixtos', image: 'ramos/combinado-mixto.jpg', hexColor: '#7C3AED', available: true }
     ]
   },
-{
+  {
     id: 9,
     name: 'Ramo 7 Girasoles',
     description: 'Ramo vibrante de girasoles que ilumina cualquier espacio',
@@ -146,21 +147,23 @@ export const products: Product[] = [
     tags: ['alegre', 'vibrante'],
     hasVariants: false
   },
-  
-  
+
+
   {
     id: 11,
-    name: 'Ramo de 8 Rosas',
-    description: 'Hermoso ramo de 8 rosas para ocasiones especiales',
+    name: 'Ramo de 10 Rosas',
+    description: 'Hermoso ramo de 10 rosas para ocasiones especiales',
     price: 70,
     category: 'ramos',
-    details: ['8 Rosas', 'Papel coreano', 'Listón', 'Tarjeta'],
+    details: ['10 Rosas', 'Papel coreano', 'Listón', 'Tarjeta'],
     image: 'ramos/8-rosas-rojo.png',
     tags: ['especial', 'romántico'],
     hasVariants: true,
     variants: [
       { id: 1, name: 'Rojo', color: 'Rojo Profundo', image: 'ramos/8-rosas-rojo.png', hexColor: '#991B1B', available: true },
       //{ id: 2, name: 'Rosado', color: 'Rosado Romantic', image: 'ramos/8-rosas-rosado.png', hexColor: '#DB2777', available: true }
+      { id: 2, name: 'Blanco', color: 'Blanco Nieve', image: 'ramos/10-rosas-blanco.jpg', hexColor: '#F3F4F6', available: true },
+      { id: 3, name: 'Rosado', color: 'Rosado Claro', image: 'ramos/10-rosas-rosado.jpg', hexColor: '#F472B6', available: true },
     ]
   },
   {
@@ -190,7 +193,8 @@ export const products: Product[] = [
     hasVariants: true,
     variants: [
       { id: 1, name: 'Rojo', color: 'Rosas Rojas', image: 'ramos/combinado-rojo.png', hexColor: '#DC2626', available: true },
-      //{ id: 2, name: 'Mixto', color: 'Colores Mixtos', image: 'ramos/combinado-mixto.jpg', hexColor: '#7C3AED', available: true }
+      { id: 2, name: 'Rosado', color: 'Rosas Rosado Claro', image: 'ramos/combinado-rosado.jpg', hexColor: '#F9A8D4', available: true },
+      { id: 3, name: 'Blanco', color: 'Blanco Nieve', image: 'ramos/combinado-blanco.jpg', hexColor: '#F3F4F6', available: true },
     ]
   },
   {
@@ -208,10 +212,29 @@ export const products: Product[] = [
       //{ id: 2, name: 'Mixto', color: 'Colores Mixtos', image: 'ramos/combinado-mixto.jpg', hexColor: '#7C3AED', available: true }
     ]
   },
-  
-  // Ramos Buchón
+
   {
     id: 15,
+    name: 'Ramo Tulipan',
+    description: 'Hermoso ramo de  Tulipanes para ocasiones especiales',
+    price: 80,
+    category: 'ramos',
+    details: ['Tulipanes', 'Base y Peluche', 'Papel coreano', 'Listón', 'Tarjeta'],
+    image: 'buchon/naranja-tulipanes.jpg',
+    tags: ['especial', 'romántico'],
+    hasVariants: true,
+    variants: [
+      { id: 1, name: 'Naranja', color: 'Tilipan Naranja', image: 'ramos/tulipanes-naranja.jpg', hexColor: '#F97316', available: true },
+      { id: 2, name: 'Rosado', color: 'Rosado Romantic', image: 'ramos/tulipanes-rosado.jpg', hexColor: '#DB2777', available: true },
+      { id: 3, name: 'Blanco', color: 'Blanco', image: 'ramos/tulipanes-blanca.jpg', hexColor: '#F3F4F6', available: true },
+      { id: 4, name: 'Amarillo', color: 'Amarillo', image: 'ramos/tulipanes-amarillo.jpg', hexColor: '#FBBF24', available: true }
+      
+    ]
+  },
+
+  // Ramos Buchón
+  {
+    id: 16,
     name: 'Ramo Buchón 12 Girasoles',
     description: 'Impresionante buchón de 12 girasoles para ocasiones especiales',
     price: 80,
@@ -223,7 +246,7 @@ export const products: Product[] = [
     hasVariants: false
   },
   {
-    id: 16,
+    id: 17,
     name: 'Ramo Buchón 4 Lilium + 12 Rosas',
     description: 'Exclusivo buchón con lilium y rosas para eventos importantes',
     price: 130,
@@ -239,7 +262,7 @@ export const products: Product[] = [
     ]
   },
   {
-    id: 17,
+    id: 18,
     name: 'Ramo Primaveral 12 Gerberas',
     description: 'Buchón primaveral con 12 gerberas sobre base decorativa',
     price: 80,
@@ -254,7 +277,7 @@ export const products: Product[] = [
     // ]
   },
   {
-    id: 18,
+    id: 19,
     name: 'Ramo Buchón 6 Girasol + 14 Rosas',
     description: 'Espectacular combinación en formato buchón',
     price: 120,
@@ -265,11 +288,11 @@ export const products: Product[] = [
     hasVariants: true,
     variants: [
       { id: 1, name: 'Rojo', color: 'Rosas Rojas', image: 'buchon/6girasol-14rosas.png', hexColor: '#B91C1C', available: true },
-      { id: 2, name: 'Blanco', color: 'Rosas Blancas', image: 'buchon/combinado-blanco.jpg', hexColor: '#F3F4F6', available: true }
+      //{ id: 2, name: 'Blanco', color: 'Rosas Blancas', image: 'buchon/combinado-blanco.jpg', hexColor: '#F3F4F6', available: true }
     ]
   },
   {
-    id: 19,
+    id: 20,
     name: 'Ramo Buchón 1 Girasol + 16 Rosas',
     description: 'Buchón elegante con toque de alegría',
     price: 110,
@@ -279,12 +302,12 @@ export const products: Product[] = [
     tags: ['elegante', 'romántico'],
     hasVariants: true,
     variants: [
-      { id: 1, name: 'Rojo', color: 'Rosas Rosadas', image: 'buchon/1girasol-16rosas.png', hexColor: '#EC4899', available: true },
+      { id: 1, name: 'Rojo', color: 'Rosas Rojas', image: 'buchon/1girasol-16rosas.png', hexColor: '#DC2626', available: true },
       //{ id: 2, name: 'Rojo', color: 'Rosas Rojas', image: 'buchon/16rosas-rojo.jpg', hexColor: '#DC2626', available: true }
     ]
   },
   {
-    id: 20,
+    id: 21,
     name: '24 Rosas + 7 Girasoles',
     description: 'Impresionante buchón para ocasiones muy especiales',
     price: 140,
@@ -300,7 +323,7 @@ export const products: Product[] = [
     ]
   },
   {
-    id: 21,
+    id: 22,
     name: 'Ramo Buchon de 30 Rosas',
     description: 'Hermoso ramo de 30 rosas para ocasiones especiales',
     price: 150,
@@ -316,12 +339,12 @@ export const products: Product[] = [
   },
 
   {
-    id: 22,
-    name: 'Ramo Tulipan',
+    id: 23,
+    name: 'Ramo Tulipan Mixto',
     description: 'Hermoso ramo de 6 Tulipanes para ocasiones especiales',
     price: 180,
     category: 'ramos-buchon',
-    details: ['6 Tulipanes', 'Base y Peluche','Papel coreano', 'Listón', 'Tarjeta'],
+    details: ['6 Tulipanes', 'Base y Peluche', 'Papel coreano', 'Listón', 'Tarjeta'],
     image: 'buchon/6-tulipanes.png',
     tags: ['especial', 'romántico'],
     hasVariants: true,
@@ -331,12 +354,12 @@ export const products: Product[] = [
     ]
   },
   {
-    id: 23,
+    id: 24,
     name: 'Ramo Amor',
     description: 'Hermoso ramo de 6 rosas para ocasiones especiales',
     price: 120,
     category: 'ramos-buchon',
-    details: ['6 Rosas ','Peluche y Base', 'Papel coreano', 'Listón', 'Tarjeta'],
+    details: ['6 Rosas ', 'Peluche y Base', 'Papel coreano', 'Listón', 'Tarjeta'],
     image: 'buchon/6-rosas-amor.png',
     tags: ['especial', 'romántico'],
     hasVariants: true,
@@ -345,10 +368,10 @@ export const products: Product[] = [
       //{ id: 2, name: 'Rosado', color: 'Rosado Romantic', image: 'buchon/6-rosas-amor-rosado.jpg', hexColor: '#DB2777', available: true }
     ]
   },
-  
+
   // Arreglos Florales
   {
-    id: 24,
+    id: 25,
     name: 'Arreglo Floral 3 Rosas',
     description: 'Encantador arreglo floral para decoración de interiores',
     price: 25,
@@ -358,12 +381,12 @@ export const products: Product[] = [
     tags: ['decorativo', 'económico'],
     hasVariants: true,
     variants: [
-      { id: 1, name: 'Rojo', color: 'Rojo Clásico', image: 'arreglos/3-rosas-rojo.png', hexColor: '#EF4444', available: true },
-      { id: 2, name: 'Rosado', color: 'Rosado Suave', image: 'arreglos/3-rosas-rosado.jpg', hexColor: '#F472B6', available: true }
+      { id: 1, name: 'Rojo', color: 'Rojo Clásico', image: 'arreglos/3-rosas-rojo.png', hexColor: '#F472B6', available: true },
+      //{ id: 2, name: 'Rosado', color: 'Rosado Suave', image: 'arreglos/3-rosas-rosado.jpg', hexColor: '#F472B6', available: true }
     ]
   },
   {
-    id: 25,
+    id: 26,
     name: 'Arreglo Floral 4 Rosas + 2 Ave',
     description: 'Arreglo especial con rosas y aves decorativas',
     price: 35,
@@ -374,11 +397,11 @@ export const products: Product[] = [
     hasVariants: true,
     variants: [
       { id: 1, name: 'Rojo', color: 'Rosas Rojas', image: 'arreglos/4rosas-rojo.png', hexColor: '#DC2626', available: true },
-      { id: 2, name: 'Blanco', color: 'Rosas Blancas', image: 'arreglos/4rosas-blanco.jpg', hexColor: '#FFFFFF', available: true }
+      //{ id: 2, name: 'Blanco', color: 'Rosas Blancas', image: 'arreglos/4rosas-blanco.jpg', hexColor: '#FFFFFF', available: true }
     ]
   },
   {
-    id: 26,
+    id: 27,
     name: 'Arreglo 6 Rosas + 3 Girasoles',
     description: 'Colorido arreglo floral para alegrar cualquier espacio',
     price: 60,
@@ -393,7 +416,7 @@ export const products: Product[] = [
     ]
   },
   {
-    id: 27,
+    id: 28,
     name: 'Arreglo 2 Rosas + 5 Girasoles',
     description: 'Colorido arreglo floral para alegrar cualquier espacio',
     price: 60,
@@ -408,7 +431,7 @@ export const products: Product[] = [
     ]
   },
   {
-    id: 28,
+    id: 29,
     name: 'Bolsa Floral 3 Rosas',
     description: 'Elegante bolsa floral con rosas premium',
     price: 60,
@@ -423,7 +446,7 @@ export const products: Product[] = [
     ]
   },
   {
-    id: 29,
+    id: 30,
     name: 'Canasta Floral 7 Girasoles',
     description: 'Hermosa canasta con girasoles frescos',
     price: 65,
@@ -434,7 +457,7 @@ export const products: Product[] = [
     hasVariants: false
   },
   {
-    id: 30,
+    id: 31,
     name: 'Box Floral 12 Rosas',
     description: 'Elegante caja con 12 rosas premium',
     price: 90,
@@ -449,7 +472,7 @@ export const products: Product[] = [
     ]
   },
   {
-    id: 31,
+    id: 32,
     name: 'Box Girasol 9 Girasoles',
     description: 'Caja decorativa con 9 girasoles vibrantes',
     price: 75,
@@ -460,8 +483,8 @@ export const products: Product[] = [
     hasVariants: false
   },
   {
-    id: 32,
-    name: 'Arreglo Floral Premium',
+    id: 33,
+    name: 'Arreglo Floral',
     description: 'Lujoso arreglo floral combinado para ocasiones especiales',
     price: 120,
     category: 'arreglos-florales',
@@ -472,11 +495,11 @@ export const products: Product[] = [
     hasVariants: true,
     variants: [
       { id: 1, name: 'Mixto', color: 'Colores Mixtos', image: 'arreglos/12rosas-rojas-arreglo.png', hexColor: '#7C3AED', available: true },
-      { id: 2, name: 'Pastel', color: 'Tonos Pastel', image: 'arreglos/premium-pastel.png', hexColor: '#C4B5FD', available: true }
+      //{ id: 2, name: 'Pastel', color: 'Tonos Pastel', image: 'arreglos/premium-pastel.png', hexColor: '#C4B5FD', available: true }
     ]
   },
   {
-    id: 33,
+    id: 34,
     name: 'Arreglo Girasol 12 Girasoles',
     description: 'Impresionante arreglo de girasoles en base cerámica',
     price: 100,
@@ -486,10 +509,10 @@ export const products: Product[] = [
     tags: ['alegre', 'vibrante'],
     hasVariants: false
   },
-  
+
   // Plantas
   {
-    id: 34,
+    id: 35,
     name: 'Anturio',
     description: 'Hermosa planta de anturio para decoración duradera',
     price: 140,
@@ -505,7 +528,7 @@ export const products: Product[] = [
     ]
   },
   {
-    id: 35,
+    id: 36,
     name: 'Orquídea',
     description: 'Elegante orquídea en maceta decorativa',
     price: 160,
@@ -521,152 +544,171 @@ export const products: Product[] = [
       { id: 3, name: 'Rosada', color: 'Orquídea Rosada', image: 'plantas/orquidea-rosada.png', hexColor: '#EC4899', available: true }
     ]
   },
-  
+
   // Adornos
   {
-    id: 36,
-    name: 'Adorno "Feliz Día"',
-    description: 'Adorno decorativo con mensaje de feliz día',
+    id: 37,
+    name: 'Adorno 1',
+    description: '',
     price: 70,
     category: 'adornos',
-    details: ['Adorno decorativo premium', 'Mensaje personalizable', 'Base estable', 'Embalaje especial'],
-    image: 'adornos/feliz-dia.jpg',
+    details: ['Adorno decorativo', 'Mensaje personalizable', 'Base estable', 'Embalaje especial'],
+    image: 'adornos/adorno1.png',
     featured: false,
-    hasVariants: true,
-    variants: [
-      { id: 1, name: 'Rojo', color: 'Base Roja', image: 'adornos/feliz-dia-rojo.jpg', hexColor: '#EF4444', available: true },
-      { id: 2, name: 'Azul', color: 'Base Azul', image: 'adornos/feliz-dia-azul.jpg', hexColor: '#3B82F6', available: true }
-    ]
-  },
-  {
-    id: 37,
-    name: 'Adorno Decorativo',
-    description: 'Adorno elegante para regalo o decoración',
-    price: 45,
-    category: 'adornos',
-    details: ['Adorno decorativo', 'Base estable', 'Embalaje protector'],
-    image: 'adornos/decorativo.jpg',
-    hasVariants: true,
-    variants: [
-      { id: 1, name: 'Dorado', color: 'Tono Dorado', image: 'adornos/decorativo-dorado.jpg', hexColor: '#FBBF24', available: true },
-      { id: 2, name: 'Plateado', color: 'Tono Plateado', image: 'adornos/decorativo-plateado.jpg', hexColor: '#D1D5DB', available: true }
-    ]
+    hasVariants: false,
+    
   },
   {
     id: 38,
-    name: 'Adorno Especial',
-    description: 'Adorno premium para ocasiones importantes',
-    price: 50,
+    name: 'Adorno 2',
+    description: '',
+    price: 70,
     category: 'adornos',
-    details: ['Adorno premium', 'Decoración especial', 'Base de calidad', 'Tarjeta incluida'],
-    image: 'adornos/especial.jpg',
-    hasVariants: true,
-    variants: [
-      { id: 1, name: 'Corazón', color: 'Forma Corazón', image: 'adornos/corazon.jpg', hexColor: '#EF4444', available: true },
-      { id: 2, name: 'Estrella', color: 'Forma Estrella', image: 'adornos/estrella.jpg', hexColor: '#FBBF24', available: true }
-    ]
+    details: ['Adorno decorativo', 'Mensaje personalizable', 'Base estable', 'Embalaje especial'],
+    image: 'adornos/adorno2.png',
+    featured: false,
+    hasVariants: false,
+    
   },
   
-  // Ramos Artificiales (ejemplo)
   {
     id: 39,
-    name: 'Ramo Artificial de Rosas',
-    description: 'Hermoso ramo de rosas artificiales para decoración permanente',
-    price: 85,
-    category: 'ramos-artificiales',
-    details: ['12 Rosas artificiales premium', 'Follaje artificial', 'Base decorativa', 'Sin mantenimiento'],
-    image: 'artificiales/rosas.jpg',
-    tags: ['duradero', 'decorativo'],
-    hasVariants: true,
-    variants: [
-      { id: 1, name: 'Rojo', color: 'Rojo Intenso', image: 'artificiales/rosas-rojo.jpg', hexColor: '#B91C1C', available: true },
-      { id: 2, name: 'Blanco', color: 'Blanco Puro', image: 'artificiales/rosas-blanco.jpg', hexColor: '#FFFFFF', available: true },
-      { id: 3, name: 'Rosado', color: 'Rosado Suave', image: 'artificiales/rosas-rosado.jpg', hexColor: '#F9A8D4', available: true }
-    ]
+    name: 'Adorno 3',
+    description: '',
+    price: 70,
+    category: 'adornos',
+    details: ['Adorno decorativo', 'Mensaje personalizable', 'Base estable', 'Embalaje especial'],
+    image: 'adornos/adorno3.png',
+    featured: false,
+    hasVariants: false,
+    
   },
-  
-  // Globos y Peluches (ejemplo)
   {
     id: 40,
-    name: 'Globos Metálicos',
-    description: 'Set de globos metálicos para decoración de eventos',
-    price: 30,
-    category: 'globos-peluches',
-    details: ['Set de 5 globos metálicos', 'Varillas decorativas', 'Cinta de colores'],
-    image: 'globos-peluches/globos-metalicos.jpg',
-    tags: ['decoración', 'fiesta'],
-    hasVariants: true,
-    variants: [
-      { id: 1, name: 'Dorado', color: 'Globos Dorados', image: 'globos-peluches/globos-dorado.jpg', hexColor: '#FBBF24', available: true },
-      { id: 2, name: 'Plateado', color: 'Globos Plateados', image: 'globos-peluches/globos-plateado.jpg', hexColor: '#E5E7EB', available: true },
-      { id: 3, name: 'Rose Gold', color: 'Rose Gold', image: 'globos-peluches/globos-rosegold.jpg', hexColor: '#F9A8D4', available: true }
-    ]
+    name: 'Adorno 4',
+    description: '',
+    price: 70,
+    category: 'adornos',
+    details: ['Adorno decorativo', 'Mensaje personalizable', 'Base estable', 'Embalaje especial'],
+    image: 'adornos/adorno4.png',
+    featured: false,
+    hasVariants: false,
+    
   },
   {
     id: 41,
-    name: 'Peluche Corazón',
-    description: 'Suave peluche en forma de corazón para regalos especiales',
-    price: 40,
-    category: 'globos-peluches',
-    details: ['Peluche premium', 'Material suave', 'Lazo decorativo'],
-    image: 'globos-peluches/peluche-corazon.jpg',
-    tags: ['regalo', 'romántico'],
-    hasVariants: true,
-    variants: [
-      { id: 1, name: 'Rojo', color: 'Corazón Rojo', image: 'globos-peluches/corazon-rojo.jpg', hexColor: '#EF4444', available: true },
-      { id: 2, name: 'Rosado', color: 'Corazón Rosado', image: 'globos-peluches/corazon-rosado.jpg', hexColor: '#F472B6', available: true },
-      { id: 3, name: 'Blanco', color: 'Corazón Blanco', image: 'globos-peluches/corazon-blanco.jpg', hexColor: '#FFFFFF', available: true }
-    ]
-  }
+    name: 'Adorno 5',
+    description: '',
+    price: 70,
+    category: 'adornos',
+    details: ['Adorno decorativo', 'Mensaje personalizable', 'Base estable', 'Embalaje especial'],
+    image: 'adornos/adorno5.png',
+    featured: false,
+    hasVariants: false,
+    
+  },
+  
+
+  // Ramos Artificiales (ejemplo)
+  // {
+  //   id: 42,
+  //   name: 'Ramo Artificial de Rosas',
+  //   description: 'Hermoso ramo de rosas artificiales para decoración permanente',
+  //   price: 85,
+  //   category: 'ramos-artificiales',
+  //   details: ['12 Rosas artificiales premium', 'Follaje artificial', 'Base decorativa', 'Sin mantenimiento'],
+  //   image: 'artificiales/rosas.jpg',
+  //   tags: ['duradero', 'decorativo'],
+  //   hasVariants: true,
+  //   variants: [
+  //     { id: 1, name: 'Rojo', color: 'Rojo Intenso', image: 'artificiales/rosas-rojo.jpg', hexColor: '#B91C1C', available: true },
+  //     { id: 2, name: 'Blanco', color: 'Blanco Puro', image: 'artificiales/rosas-blanco.jpg', hexColor: '#FFFFFF', available: true },
+  //     { id: 3, name: 'Rosado', color: 'Rosado Suave', image: 'artificiales/rosas-rosado.jpg', hexColor: '#F9A8D4', available: true }
+  //   ]
+  // },
+
+  // Globos y Peluches (ejemplo)
+  // {
+  //   id: 44,
+  //   name: 'Globos Metálicos',
+  //   description: 'Set de globos metálicos para decoración de eventos',
+  //   price: 30,
+  //   category: 'globos-peluches',
+  //   details: ['Set de 5 globos metálicos', 'Varillas decorativas', 'Cinta de colores'],
+  //   image: 'globos-peluches/globos-metalicos.jpg',
+  //   tags: ['decoración', 'fiesta'],
+  //   hasVariants: true,
+  //   variants: [
+  //     { id: 1, name: 'Dorado', color: 'Globos Dorados', image: 'globos-peluches/globos-dorado.jpg', hexColor: '#FBBF24', available: true },
+  //     { id: 2, name: 'Plateado', color: 'Globos Plateados', image: 'globos-peluches/globos-plateado.jpg', hexColor: '#E5E7EB', available: true },
+  //     { id: 3, name: 'Rose Gold', color: 'Rose Gold', image: 'globos-peluches/globos-rosegold.jpg', hexColor: '#F9A8D4', available: true }
+  //   ]
+  // },
+  // {
+  //   id: 45,
+  //   name: 'Peluche Corazón',
+  //   description: 'Suave peluche en forma de corazón para regalos especiales',
+  //   price: 40,
+  //   category: 'globos-peluches',
+  //   details: ['Peluche premium', 'Material suave', 'Lazo decorativo'],
+  //   image: 'globos-peluches/peluche-corazon.jpg',
+  //   tags: ['regalo', 'romántico'],
+  //   hasVariants: true,
+  //   variants: [
+  //     { id: 1, name: 'Rojo', color: 'Corazón Rojo', image: 'globos-peluches/corazon-rojo.jpg', hexColor: '#EF4444', available: true },
+  //     { id: 2, name: 'Rosado', color: 'Corazón Rosado', image: 'globos-peluches/corazon-rosado.jpg', hexColor: '#F472B6', available: true },
+  //     { id: 3, name: 'Blanco', color: 'Corazón Blanco', image: 'globos-peluches/corazon-blanco.jpg', hexColor: '#FFFFFF', available: true }
+  //   ]
+  // }
 ];
 
 export const categories: ProductCategoryType[] = [
-  { 
-    id: 1, 
-    name: 'Ramos', 
-    description: 'Ramos de flores naturales frescas', 
+  {
+    id: 1,
+    name: 'Ramos',
+    description: 'Ramos de flores naturales frescas',
     icon: '🌹',
     color: 'from-red-500 to-pink-500'
   },
-  { 
-    id: 2, 
-    name: 'Ramos Buchón', 
-    description: 'Ramos especiales en formato buchón', 
+  {
+    id: 2,
+    name: 'Ramos Buchón',
+    description: 'Ramos especiales en formato buchón',
     icon: '💐',
     color: 'from-purple-500 to-pink-500'
   },
-  { 
-    id: 3, 
-    name: 'Arreglos Florales', 
-    description: 'Arreglos en base, caja o canasta', 
+  {
+    id: 3,
+    name: 'Arreglos Florales',
+    description: 'Arreglos en base, caja o canasta',
     icon: '🏺',
     color: 'from-blue-500 to-cyan-500'
   },
-  { 
-    id: 4, 
-    name: 'Plantas', 
-    description: 'Plantas naturales decorativas', 
+  {
+    id: 4,
+    name: 'Plantas',
+    description: 'Plantas naturales decorativas',
     icon: '🪴',
     color: 'from-green-500 to-emerald-500'
   },
-  { 
-    id: 5, 
-    name: 'Adornos', 
-    description: 'Adornos y detalles especiales', 
+  {
+    id: 5,
+    name: 'Adornos',
+    description: 'Adornos y detalles especiales',
     icon: '🎀',
     color: 'from-yellow-500 to-orange-500'
   },
-  { 
-    id: 6, 
-    name: 'Ramos Artificiales', 
-    description: 'Flores artificiales duraderas', 
+  {
+    id: 6,
+    name: 'Ramos Artificiales',
+    description: 'Flores artificiales duraderas',
     icon: '🌸',
     color: 'from-gray-500 to-gray-700'
   },
-  { 
-    id: 7, 
-    name: 'Globos y Peluches', 
-    description: 'Complementos para arreglos', 
+  {
+    id: 7,
+    name: 'Globos y Peluches',
+    description: 'Complementos para arreglos',
     icon: '🎈',
     color: 'from-pink-500 to-rose-500'
   },
@@ -675,9 +717,9 @@ export const categories: ProductCategoryType[] = [
 export const contactInfo = {
   phone: '989 807 482',
   socialMedia: {
-    facebook: 'Florería Tacna D\'marsihui',
-    instagram: 'Florería Tacna D\'marsihui',
-    tiktok: 'Florería Tacna D\'marsihui'
+    facebook: '@floreriatacna.dsilvia',
+    instagram: '@floreriatacna.dsilvia',
+    tiktok: '@floreriatacna.dsilvia'
   },
   address: 'Tacna, Perú',
   businessHours: 'Lunes a Domingo: 9:00 AM - 4:00 PM'
