@@ -37,7 +37,7 @@ const Header: React.FC = () => {
         <div className="flex items-center justify-between h-25">
           {/* Logo */}
           <a href="#inicio" className="flex items-center group">
-            <div className="relative w-50 h-50 sm:w-50 sm:h-50 md:w-50 md:h-50">
+            <div className="relative w-35 h-35 sm:w-50 sm:h-50 md:w-50 md:h-50">
               <img
                 src="/Logo1.png"
                 alt="Florería D'Silvia"
