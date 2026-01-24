@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaFacebook, FaInstagram, FaTiktok, FaWhatsapp } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaLinkedin, FaTiktok, FaWhatsapp } from 'react-icons/fa';
 import { Clock, MapPin, Phone, Heart, AlertCircle } from 'lucide-react';
 import { contactInfo } from '../data/products';
 
@@ -152,10 +152,10 @@ const Footer: React.FC = () => {
             })}
           </div>
 
-          {/* Hecho con amor */}
+          {/*  */}
           <p className="text-sm text-gray-600 flex items-center gap-2">
-            <Heart className="w-4 h-4 text-red-500 animate-pulse" />
-            Hecho con amor en Tacna
+            
+            <a href="https://www.linkedin.com/in/jose-manuel-huarachi-colquehuanca-ba606826b/">Realizado por: <FaLinkedin className="w-4 h-4 text-red-500 animate-pulse" /></a>
           </p>
         </div>
       </div>

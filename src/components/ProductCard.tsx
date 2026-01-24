@@ -29,7 +29,26 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     '1560785496-3c9d27877182'
   ][product.id % 4]}?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80`;
 
+  // Construir URL completa de la imagen para Netlify
+  const getFullImageUrl = () => {
+    if (imageError) {
+      return fallbackImage;
+    }
+    
+    // Para Netlify, necesitamos la URL absoluta
+    const baseUrl = window.location.origin;
+    
+    // Si la imagen empieza con /img/, mantenemos esa estructura
+    if (imagePath.startsWith('/img/')) {
+      return `${baseUrl}${imagePath}`;
+    }
+    
+    // Si no tiene /img/, lo agregamos
+    return `${baseUrl}/img/${imagePath.replace(/^img\//, '')}`;
+  };
+
   const handleConsult = () => {
+    const imageUrl = getFullImageUrl();
     let message = `Hola! Me interesa el producto: ${product.name} - S/. ${product.price.toFixed(2)}`;
     
     // Agregar información de variante seleccionada si existe
@@ -38,8 +57,20 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       message += ` (Color: ${variant.name})`;
     }
     
+    // Método 1: Intentar con parámetro media (puede no funcionar en todos los navegadores)
+    // const whatsappUrl = `https://wa.me/51989807482?text=${encodeURIComponent(message)}&media=${encodeURIComponent(imageUrl)}`;
+    
+    // Método 2: URL estándar (solo mensaje, la imagen no se adjunta automáticamente)
     const whatsappUrl = `https://wa.me/51989807482?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
+    
+    // Método 3: Alternativa - Abrir WhatsApp y luego mostrar instrucciones
+    // window.open(`https://web.whatsapp.com/send?phone=51989807482&text=${encodeURIComponent(message + '\n\n🖼️ Imagen: ' + imageUrl)}`, '_blank');
+    
+    // Método más confiable: mensaje + instrucciones para la imagen
+    const fullMessage = `${message}\n\n🖼️ *Imagen del producto:*\n${imageUrl}\n\n(Puedes ver la imagen copiando este enlace en tu navegador)`;
+    const finalWhatsappUrl = `https://wa.me/51989807482?text=${encodeURIComponent(fullMessage)}`;
+    
+    window.open(finalWhatsappUrl, '_blank');
   };
 
   return (
